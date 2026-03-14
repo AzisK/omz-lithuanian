@@ -47,6 +47,10 @@ directory() {
    echo "$(arrow_start) %2~ $(arrow_end)"
 }
 
+current_time() {
+   echo "%{$fg[white]%}%*%{$reset_color%}"
+}
+
 # set the git_prompt_info text - prefix/suffix contain the arrow styling
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[016]%}%{$BG[196]%}%B "
 ZSH_THEME_GIT_PROMPT_SUFFIX=" %b%{$reset_color%}%{$FG[196]%}❯%{$reset_color%}"
@@ -62,4 +66,4 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%} ✱%{$reset_color%}"
 
 PROMPT='$(username)$(directory)$(git_prompt_info) '
-RPROMPT='$(git_prompt_status)'
+RPROMPT='$(git_prompt_status) $(current_time)'
